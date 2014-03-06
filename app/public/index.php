@@ -17,7 +17,8 @@ try {
 	$loader->registerDirs(
 		array(
 			$config->application->controllersDir,
-			$config->application->modelsDir
+			$config->application->modelsDir,
+			$config->application->collectionsDir,
 		)
 	)->register();
 
@@ -76,7 +77,14 @@ try {
 		$session->start();
 		return $session;
 	});
-
+    $di->set('mongo', function() use ($config) {
+        $mongo = new Mongo($config['mongo']['connection']);
+        return $mongo->selectDb($config['mongo']['db']);
+    }, true);
+    // Collection Manager
+    $di->set('collectionManager', function(){
+        return new \Phalcon\Mvc\Collection\Manager();
+    });
 	/**
 	 * Handle the request
 	 */

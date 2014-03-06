@@ -1,16 +1,14 @@
 <?php
 
 return new \Phalcon\Config(array(
-	'database' => array(
-		'adapter'  => 'Mysql',
-		'host'     => 'localhost',
-		'username' => 'root',
-		'password' => '',
-		'name'     => 'test',
-	),
+    'mongo' => array(
+        'db' => 'zachetka',
+        'connection' => 'mongodb://localhost:27017',
+    ),
 	'application' => array(
 		'controllersDir' => __DIR__ . '/../../app/controllers/',
 		'modelsDir'      => __DIR__ . '/../../app/models/',
+		'collectionsDir' => __DIR__ . '/../../app/collections/',
 		'viewsDir'       => __DIR__ . '/../../app/views/',
 		'pluginsDir'     => __DIR__ . '/../../app/plugins/',
 		'libraryDir'     => __DIR__ . '/../../app/library/',

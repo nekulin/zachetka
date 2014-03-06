@@ -1,3 +1,13 @@
+<?php
+/**
+ * @var UsersOnline[] $attrUsersOnline
+ */
+?>
 <h1>Congratulations!</h1>
 
 <p>You're now flying with Phalcon.</p>
+<?php if ($attrUsersOnline) { ?>
+    <?php foreach ($attrUsersOnline as $objUserOnline) { ?>
+        <div><?php echo $objUserOnline->user_id; ?></div>
+    <?php } ?>
+<?php } ?>
