@@ -4,10 +4,11 @@ zachetka
 phalcon zachetka
 
 Предположим что по javascript через ajax мы отправляем инфу что пользователь активен и добавляем в коллекцию UsersOnline
+
 Создаем индекс ttl
-db.users_online.ensureIndex( { "createdAt": 1 }, { expireAfterSeconds: 300 } )
 
-
+	db.users_online.ensureIndex( { "createdAt": 1 }, { expireAfterSeconds: 300 } )
+=====
 
 	server {
 	    listen       80;
