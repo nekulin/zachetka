@@ -81,5 +81,5 @@ php app/cli.php users generate
 
 php app/cli.php users auth
 
-
+http://zachetka/ - смотрим пользователей
 
