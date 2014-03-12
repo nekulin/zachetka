@@ -46,18 +46,6 @@ try {
 	});
 
 	/**
-	 * Database connection is created based in the parameters defined in the configuration file
-	 */
-	$di->set('db', function() use ($config) {
-		return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
-			"host" => $config->database->host,
-			"username" => $config->database->username,
-			"password" => $config->database->password,
-			"dbname" => $config->database->name
-		));
-	});
-
-	/**
 	 * If the configuration specify the use of metadata adapter use it or use memory otherwise
 	 */
 	$di->set('modelsMetadata', function() use ($config) {
@@ -69,14 +57,6 @@ try {
 		}
 	});
 
-	/**
-	 * Start the session the first time some component request the session service
-	 */
-	$di->set('session', function() {
-		$session = new \Phalcon\Session\Adapter\Files();
-		$session->start();
-		return $session;
-	});
     $di->set('mongo', function() use ($config) {
         $mongo = new Mongo($config['mongo']['connection']);
         return $mongo->selectDb($config['mongo']['db']);

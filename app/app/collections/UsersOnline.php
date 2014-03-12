@@ -8,5 +8,14 @@ class UsersOnline extends \Phalcon\Mvc\Collection {
         return "users_online";
     }
 
-
+    /**
+     * @param int $intLimit
+     * @return \UsersOnline[]
+     */
+    public static function findFirstLimit($intLimit) {
+        return self::find(array(
+            "sort" => array("_id" => 1),
+            "limit" => $intLimit,
+        ));
+    }
 } 
